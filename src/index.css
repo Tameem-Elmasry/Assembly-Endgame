@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Hanken Grotesk";
+    margin: 0;
+    padding: 0;
+    background-color: #282726;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+div#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    width: 350px;
+    gap: 4px;
+    margin-block: 20px;
+}
+
+header h1 {
+    color: #f9f4da;
+    font-weight: 500;
+    font-size: 20px;
+    margin: 0;
+}
+
+header p {
+    color: #8e8e8e;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+}
+
+.game-status {
+    width: 100%;
+    max-width: 350px;
+    height: 70px;
+    text-align: center;
+    margin-block: 20px;
+    padding: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-status.won {
+    background-color: #10a95b;
+}
+
+.game-status.lost {
+    background-color: #ec5d49;
+}
+
+.game-status.farewell {
+    background-color: #7a5ea7;
+    border: 1px #323232 dashed;
+}
+
+.game-status.farewell p {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.game-status h2 {
+    margin: 0 0 5px 0;
+    color: #f9f4da;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.game-status p {
+    margin: 0;
+    font-size: 16px;
+    color: #f9f4da;
+}
+
+.languages-container {
+    width: 350px;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    gap: 4px;
+    margin-block: 20px;
+}
+
+.lang {
+    width: fit-content;
+    padding: 2px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang.killed::before {
+    content: "💀";
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 0.85rem;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.guess-word {
+    margin-block: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.guess-word span {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    background-color: #323232;
+    border-bottom: 1px solid #f9f4da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: white;
+    font-size: 1.4rem;
+    cursor: default;
+}
+
+.guess-word span.wrong {
+    color: #d14b3a;
+}
+
+.keyboard {
+    margin-block: 30px;
+    gap: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 480px;
+}
+
+.keyboard > button {
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    background-color: #fcba29;
+    column-rule: black;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #d7d7d7;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e1e1e;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.keyboard > .right {
+    background-color: #10a95b;
+}
+
+.keyboard > .wrong {
+    background-color: #ec5d49;
+}
+
+.keyboard > button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.new-game {
+    background-color: #11b5e5;
+    padding: 6px 12px;
+    width: 228px;
+    height: 40px;
+    border: 1px solid #d7d7d7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 0;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+button.show {
+    background-color: #11b5e5;
+    padding: 6px 12px;
+    width: 228px;
+    height: 40px;
+    border: 1px solid #d7d7d7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: 1;
+}
+
+.numberOfGuesses {
+    color: white;
+}
+
+.word-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
